@@ -12,7 +12,7 @@
             // Connection to database
             require('connect.php');
 
-            $type = $_POST['type'];
+            $type = $_POST['userType'];
             if (!isset($_POST['active']) && empty($_POST['active']))
             {
                 $active = 'N';
