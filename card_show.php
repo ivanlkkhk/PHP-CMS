@@ -81,14 +81,12 @@
 			action="process_comment_post.php" 
 		    method="post">
 			<table>
+				
 				<?php if (!empty($cardsRow['image_path'])): ?>
-					<tr>
-						<td rowspan="10">
+					<tr>	
+						<td rowspan="8">
 							<img src="<?=$cardsRow['image_path'] ?>" alt="<?= $cardsRow['name'] ?> " width=300>
 						</td>
-
-				<?php endif ?>
-					<tr>
 						<td colspan="2">
 							<h4>Level:</h4>
 						</td>
@@ -96,6 +94,7 @@
 							<h4>Category:</h4>
 						</td>
 					</tr>
+				<?php endif ?>
 
 					<tr>
 						<td colspan="2">
@@ -133,14 +132,14 @@
 						<td><h4>HP</h4></td>
 						<td><h4>ATK</h4></td>
 						<td><h4>DEF</h4></td>
+						<td></td>
 					</tr>
 					<tr>
 						<td><?= $cardsRow['hp'] ?></td>
 						<td><?= $cardsRow['atk'] ?></td>
 						<td><?= $cardsRow['def'] ?></td>
+						<td></td>
 					</tr>
-
-				</tr>
 			</table>
 		<?php if(isset($_SESSION['valid']) && ($_SESSION['valid'])): ?>				
 			<label for='commentText'> Comment: </label>
@@ -163,13 +162,13 @@
 				<h2>Comment of this card</h2>
 				<?php while($row = $commentStatement->fetch()): ?>
 
-					<hr name="<?= $row['card_comment_id'] ?>">
+					<hr>
 					<div id="comment-<?= $row['card_comment_id'] ?>" class="comment-post" >
-						<h4 id='comment-id'>Comment ID#: <?=$row['card_comment_id'] ?></h4>
-						<small id='comment-small'>Comment by: <?= $row['user_id'] ?> | Create date: <?= $row['create_date'] ?></small>
+						<h4 class='comment-id'>Comment ID#: <?=$row['card_comment_id'] ?></h4>
+						<small class='comment-small'>Comment by: <?= $row['user_id'] ?> | Create date: <?= $row['create_date'] ?></small>
 					</div>
 
-					<p id='comment-post'><?= $row['comment'] ?></p>
+					<p class='comment-content'><?= $row['comment'] ?></p>
 				<?php endwhile?>
 			</div>
 		<?php endif ?>
