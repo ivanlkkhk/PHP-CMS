@@ -41,7 +41,7 @@ div#heading{
     }
     div#heading img.headerImage{
         display: flex;
-        width: 100%;
+        width: 80%;
         
     }
 
@@ -242,7 +242,7 @@ div#footerMenu{
 
         div#heading img.headerImage{
             display: flex;
-            width: 70%;
+            width: 50%;
         }
     
 }
