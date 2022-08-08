@@ -45,22 +45,23 @@
 <body>
 	<header>
 		<div id="heading">
-				<div id="mainMenu">
-					<h2>Dragon Ball Z Dokkan Battle - Create Card</h2>
-					<nav>
-						<ul> 
-							<li><a href="index.php">Home</a></li>
-							<?php if(isset($_SESSION['valid']) && ($_SESSION['valid'] && $_SESSION['user_type'] === 'S')): ?>
-								<li><a href="user_admin.php">User Admin</a></li>
-							<?php endif ?>
-							<?php if(isset($_SESSION['valid']) && $_SESSION['valid']): ?>
-								<li><a href="logout.php">Logout</a></li>
-							<?php else: ?>
-								<li><a href="login.php">Login</a></li>
-							<?php endif ?>
-						</ul>
-					</nav>
-				</div>
+			<div id="mainMenu">
+				<h2>Dragon Ball Z Dokkan Battle - Create Card</h2>
+				<nav>
+					<ul> 
+						<li><a href="index.php">Home</a></li>
+						<?php if(isset($_SESSION['valid']) && ($_SESSION['valid'] && $_SESSION['user_type'] === 'S')): ?>
+							<li><a href="user_admin.php">User Admin</a></li>
+						<?php endif ?>
+						<?php if(isset($_SESSION['valid']) && $_SESSION['valid']): ?>
+							<li><a href="logout.php">Logout</a></li>
+						<?php else: ?>
+							<li><a href="login.php">Login</a></li>
+						<?php endif ?>
+					</ul>
+				</nav>
+			</div>
+		</div>
 	</header>	
 	<section>
 		<form id="cardForm"
@@ -109,12 +110,12 @@
 						<input id="def" name="def" type="number" min="1" />
 					</li>
 					<li>
-						<label for='icon_path'>Icon path:</label>
+						<label for='icon_filepath'>Icon path:</label>
 			            <input type='file' name='icon_filepath' id='icon_filepath' />
 			            <input id="icon_path" name="icon_path" type="hidden"  />
 			        </li>
 			        <li>
-						<label for='image_path'>Image path:</label>
+						<label for='image_filepath'>Image path:</label>
 			            <input type='file' name='image_filepath' id='image_filepath' />
 			            <input id="image_path" name="image_path" type="hidden" />
 			        </li>
