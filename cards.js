@@ -48,14 +48,17 @@ function addCard(table, card) {
     const show_link = document.createTextNode(htmlDecode(card.name));
     show_a.appendChild(show_link);
     show_a.title = card.name;
-    
     show_a.href = "javascript:readCard('" + card.card_id + "');";
-    
     name.appendChild(show_a);
 
+    level.align = 'center';
+    category.align = 'center';
     level.innerHTML = card.level;
     category.innerHTML = card.category; 
-    //name.innerHTML = card.name;
+    
+    hp.align = 'center';
+    atk.align = 'center';
+    def.align = 'center';
     hp.innerHTML = card.hp;
     atk.innerHTML = card.atk;
     def.innerHTML = card.def;
@@ -63,14 +66,20 @@ function addCard(table, card) {
     
     if (IsNullOrEmpty(card.icon_path)) {
         const icon_img = document.createElement("img");
+        icon_img.align = 'center';
         icon_img.src = card.icon_path;
         icon_img.width = "50";
+        icon.align = 'center';
         icon.appendChild(icon_img);
     }else
     {
+        /*
+        icon_path.align = 'center';
         const icon_path = document.createElement("td");
         icon_path.innerHTML = '-';
-        icon.appendChild(icon_path);
+        icon.appendChild(icon_path);*/
+        icon.align = 'center';
+        icon.innerHTML = '-';
     }
     
 
@@ -89,6 +98,7 @@ function addCard(table, card) {
         edit_a.appendChild(edit_link);
         edit_a.title = "Edit";
         edit_a.href = "card_edit.php?id=" + card.card_id;
+        edit.align = 'center';
         edit.appendChild(edit_a);
 
         const del_a = document.createElement('a');
@@ -97,7 +107,7 @@ function addCard(table, card) {
         del_a.title = "Del";
         //del_a.href = "card_del.php?id=" + card.card_id;
         del_a.href = "javascript:delCard('" + card.card_id + "');";
-        
+        del.align = 'center';
         del.appendChild(del_a);
         
         if(user_type == 'C'){
