@@ -1,0 +1,516 @@
+
+@import 'https://fonts.googleapis.com/css?family=Raleway';
+
+* 
+body{
+    background-color: #2a2626;
+    font-family: Raleway,Verdana,Geneva,sans-serif; 
+    padding: 0px;
+    margin: 0px;
+}
+
+
+
+div#heading{
+    background-color: var(--black);
+    box-shadow: 1px 1px 5px 0px var(--gray) ;
+    position: sticky;
+    top: 0;
+    width: 100%;
+
+}
+
+
+    div#heading h1 {
+        display: inline-block;
+        color: #eee ;
+        width: 420px;
+        padding: 10px;
+        margin: 5px;
+    }
+    
+    div#heading h1 a, div#heading h1 a:visited{
+        color:  white;
+        text-decoration: none;
+    }
+
+    div#image{
+        width: 100%;
+        display: flex;
+        justify-content: center;        
+    }
+    div#heading img.headerImage{
+        display: flex;
+        width: 100%;
+        
+    }
+
+
+div#mainMenu{
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#45484d+0,000000+100;Black+3D+%231 */
+    background: #45484d; /* Old browsers */
+    background: -moz-linear-gradient(-45deg,  #45484d 0%, #000000 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg,  #45484d 0%,#000000 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg,  #45484d 0%,#000000 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', endColorstr='#000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    text-shadow:#000 1px 1px 3px;
+    box-shadow: 5px 5px 10px #000;
+    border-radius: 5px;
+}
+
+    div#mainMenu h2 {
+        color: #eee ;
+    }
+
+    div#mainMenu ul {
+        list-style:  none;
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+        text-align: center;
+    }
+
+    div#mainMenu li {
+        border: 1px solid gray;
+        padding:7px 7px;
+        box-shadow: 5px 5px 10px #000;
+        transition: 1s;
+    }
+
+    div#mainMenu li a{
+        color: gray;
+        text-decoration: none;
+    }
+
+    div#mainMenu li a:visited{
+        color: gray;
+    }
+
+    div#mainMenu li a:hover, div#mainMenu li a:focus{
+        color: white;
+        text-shadow:#d1cccc 1px 1px 3px;
+    }
+    
+    
+
+div#content{
+    /*min-width:340px;  */
+    display: flex;
+    padding: 10px 30px 40px 30px;
+    margin: 10px 10px 10px 10px;
+    border: 1px solid gray;
+    box-shadow: 1px 1px 1px #a0a0a0;
+    border-radius: 7px;
+    line-height: 20px;
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#eeeeee+93,cccccc+100 */
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top,  #ffffff 93%, #cccccc 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  #ffffff 93%,#cccccc 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  #ffffff 93%,#cccccc 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#cccccc',GradientType=0 );  /* IE6-9 */
+}
+
+    div#content p, div#content li{
+        font-size: 13px;
+    }
+
+    div#content h2{
+        margin-top: 40px;
+        font-weight: bolder ;
+    }
+
+    div#content table {
+        font-size: 12px;
+        width: 100%;
+    }
+
+    div#content thead, div#content tfoot {
+        color: white;
+        background-color: #99ccff;
+        font-weight: bold;
+        text-align: center;
+    }
+
+div#footerMenu{
+    min-width:340px;
+    display: flex;
+    justify-content: space-around;
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#45484d+0,000000+100;Black+3D+%231 */
+    background: #45484d; /* Old browsers */
+    background: -moz-linear-gradient(-45deg,  #45484d 0%, #000000 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg,  #45484d 0%,#000000 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg,  #45484d 0%,#000000 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', endColorstr='#000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+    div#footerMenu nav{
+        display: flex;
+        vertical-align: middle;
+    }
+
+    div#footerMenu li {
+        padding: 0px;
+    }
+
+    div#footerMenu ul {
+        display: flex;
+        list-style:  none;
+        font-size:  10px;
+        padding-left: 0px;
+        align-items: center;
+        margin: 10px;
+        color: gray;
+    }
+    
+    div#footerMenu li:not(:last-child):after {
+        content: "|";
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    div#footerMenu li a{
+        color: gray;
+        text-decoration: none;
+    }
+
+    div#footerMenu li a:visited{
+        color: gray;
+    }
+
+    div#footerMenu li a:hover, div#footerMenu li a:focus{
+        color: white;
+    }
+ 
+     div#footer p{
+        font-size: 10px;
+        color: white;
+     }
+
+
+
+
+@media (min-width: 500px) {
+    div#mainMenu{
+        display: flex;
+        justify-content: space-around;
+        /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#45484d+0,000000+100;Black+3D+%231 */
+        background: #45484d; /* Old browsers */
+        background: -moz-linear-gradient(-45deg,  #45484d 0%, #000000 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(-45deg,  #45484d 0%,#000000 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(135deg,  #45484d 0%,#000000 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', endColorstr='#000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    }
+        div#mainMenu nav{
+            display: flex;
+            vertical-align: middle;
+        }
+
+        div#mainMenu li {
+            border: none;
+            padding: 0px;
+            box-shadow: none;
+            transition: none;
+        }
+
+        div#mainMenu ul {
+            display: flex;
+            list-style:  none;
+            font-size:  18px;
+            padding-left: 0px;
+            align-items: center;
+            margin: 10px;
+            color: gray;
+        }
+        
+        div#mainMenu li:not(:last-child):after {
+            content: "|";
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+
+        div#mainMenu li a{
+            color: gray;
+            text-decoration: none;
+        }
+
+        div#mainMenu li a:visited{
+            color: gray;
+        }
+
+        div#mainMenu li a:hover, div#mainMenu li a:focus{
+            color: white;
+        }
+
+        div#heading img.headerImage{
+            display: flex;
+            width: 70%;
+        }
+    
+}
+
+/* Image gallery will be resize according to the browser size. */
+
+.gallery{
+    padding: 0 6px 0 6px;
+    float: left;
+    width: 30%;
+}
+    .country{
+        padding-left: 6px;
+        float: left;
+        width: 100%;
+    }
+
+.travelImages {
+    border: 1px solid #ccc;
+}
+.travelImages img{
+    width: 100%;
+    height: auto;
+}
+
+.travelImages p{
+    padding: 15px;
+    text-align: center;
+}
+
+@media only screen and (max-width: 700px) {
+    .gallery{
+        width: 45%;
+        margin: 6px 0;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .gallery{
+        width: 100%;
+    }
+}
+
+
+
+form#card{
+    padding: 10px 30px 40px 30px;
+    margin: 10px 10px 10px 10px;
+    border: 1px solid gray;
+    box-shadow: 1px 1px 1px #a0a0a0;
+    border-radius: 7px;
+    line-height: 20px;
+    font-size: 12px;
+
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#eeeeee+93,cccccc+100 */
+
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top,  #ffffff 93%, #cccccc 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  #ffffff 93%,#cccccc 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  #ffffff 93%,#cccccc 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#cccccc',GradientType=0 );  /* IE6-9 */
+}
+
+form#card label{
+    font-size: 13px;
+    font-weight: bolder;
+}
+
+form#card h4{
+    margin: 0px 0px 0px 0px;
+}
+
+form#loginForm, form#cardForm{
+    /*min-width:500px; */
+    padding: 10px 30px 40px 30px;
+    margin: 10px 10px 10px 10px;
+    border: 1px solid gray;
+    box-shadow: 1px 1px 1px #a0a0a0;
+    border-radius: 7px;
+    line-height: 20px;
+    font-size: 16px;
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#eeeeee+93,cccccc+100 */
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top,  #ffffff 93%, #cccccc 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  #ffffff 93%,#cccccc 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  #ffffff 93%,#cccccc 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#cccccc',GradientType=0 );  /* IE6-9 */
+}
+
+form#loginForm fieldset, form#cardForm fieldset{
+    border:0px;
+    margin-bottom:20px;
+}
+
+form#loginForm legend, form#cardForm legend{
+    font-weight:bold;
+    padding-left:20px;
+    text-shadow:0px 1px 1px #5c6068;
+}
+
+fieldset#login ul, fieldset#card ul{
+    list-style:  none;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+form#loginForm ul li, form#cardForm ul li{
+    border:2px solid gray;
+    border-radius:5px;
+    box-shadow: 1px 1px 1px #a0a0a0;
+    line-height:30px;
+    padding:5px 10px;
+    margin-bottom:4px;
+}
+
+form#loginForm label, form#cardForm label{
+    float: left;
+    font-size: 13px;
+    font-weight: bolder;
+    width: 100px;
+}
+
+form#loginForm p, form#cardForm p{
+    margin: 0px;
+    font-size:13px;
+    font-weight: bolder;
+    padding-left: 80px;
+    color: red;
+    width: 230px;
+}
+
+form#loginForm input:focus, form#loginForm textarea:focus, form#cardForm input:focus, form#cardForm textarea:focus  {
+    background: #edebeb;
+    color: blue;
+}
+
+form#cardForm input, form#cardForm textarea {
+        background:#cbe9f7;
+        border:none;
+        border-radius:3px;
+        padding:5px;
+        width:80%;
+        font-weight: bold;
+        font-family: Raleway,Verdana,Geneva,sans-serif; 
+}
+
+form#loginFrom select, form#cardFrom select{
+        background-color:#cbe9f7;
+        border:none;
+        border-radius:3px;
+        padding:5px;
+        width:95%;
+        font-weight: bold;
+        font-family: Raleway,Verdana,Geneva,sans-serif; 
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+form#loginForm button, form#cardForm button, form#card button{
+    background: gray;
+    border:none;
+    border-radius: 5px;
+    color: white;
+    padding: 10px 25px;
+    margin: 5px;
+    text-shadow: 0 1px 1px #000000;
+    text-transform: uppercase;
+}
+
+div#sorting, div#search {
+    text-align: center;
+    padding-top: 10px;
+}
+div#sorting select{
+    padding:  0.5rem;
+    font-size:  .8em;
+    line-height: 1;
+    color: #fff;
+    border:  none;
+    text-transform: none;
+    vertical-aligh:  middle;
+    background-color: #3c3e40;
+
+}
+
+div#sorting label, div#search{
+    font-size:  .8em;
+    color:  #b4b4b4;
+}
+
+div.pagination {
+  display: inline-block;
+}
+
+div.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+  border: 1px solid #ddd;
+}
+
+div.pagination a.active {
+  background-color: #99ccff;
+  color: white;
+  border: 1px solid #99ccff;
+}
+
+div.pagination a:hover:not(.active) {background-color: #ddd;}
+
+
+
+form#card textarea:focus  {
+    background: #edebeb;
+    color: blue;
+}
+
+form#card textarea {
+        background:#cbe9f7;
+        border:none;
+        border-radius:3px;
+        padding:5px;
+        width:100%;
+        font-weight: bold;
+        font-family: Raleway,Verdana,Geneva,sans-serif; 
+}
+
+div#comment{
+    padding: 10px 30px 40px 30px;
+    margin: 10px 10px 10px 10px;
+    border: 1px solid gray;
+    box-shadow: 1px 1px 1px #a0a0a0;
+    border-radius: 7px;
+    line-height: 20px;
+    font-size: 12px;
+
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#eeeeee+93,cccccc+100 */
+
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top,  #ffffff 93%, #cccccc 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  #ffffff 93%,#cccccc 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  #ffffff 93%,#cccccc 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#cccccc',GradientType=0 );  /* IE6-9 */
+
+}
+
+.comment-post{
+    display: flex;
+    justify-content: space-between;
+    margin: 0px;
+}
+
+h4#comment-id{
+    display: inline-block;
+    margin: 0px;
+}
+
+p#comment-small {
+    display: flex;
+    margin: 0px;
+}
+
+p#comment-post{
+    margin: 0px;
+    padding-left: 20px;
+}
