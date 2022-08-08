@@ -39,6 +39,11 @@
 				<div class="buttons">
 					<button type="submit" id="login_button" name="login_button">login</button>
 				</div>
+				<?php if (isset($_GET['errorMsg']) && !empty($_GET['errorMsg'])): ?>
+				
+						<h1><?= $_GET['errorMsg']; ?></h1>
+				
+				<?php endif ?>
 			</fieldset>
 		</form>
 		<footer>
