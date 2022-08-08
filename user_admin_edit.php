@@ -95,8 +95,8 @@
 						<input id="name" name="name" type="text" value="<?= $row['name']?>"/>
 					</li>
 					<li>
-						<label for="type">Type</label>
-						<select name="type">
+						<label for="userType">Type</label>
+						<select id="userType" name="userType">
 							<?php $selected = ($row['type'] === 'S')?"selected":" " ?>
 							<option value="S" <?= $selected ?> >System Administrator</option>
 							<?php $selected = ($row['type'] === 'C')?"selected":" " ?>
