@@ -32,7 +32,6 @@
 					<nav>
 						<ul> 
 							<li><a href="index.php">Home</a></li>
-							<li><a href="news.php">News</a></li>
 							<?php if(isset($_SESSION['valid']) && ($_SESSION['valid'] && $_SESSION['user_type'] === 'S')): ?>
 								<li><a href="user_admin.php">User Admin</a></li>
 							<?php endif ?>
@@ -78,7 +77,6 @@
 	            <nav>
 								<ul> 
 									<li><a href="index.php">Home</a></li>
-									<li><a href="news.php">News</a></li>
 									<?php if(isset($_SESSION['valid']) && ($_SESSION['valid'] && $_SESSION['user_type'] === 'S')): ?>
 										<li><a href="user_admin.php">User Admin</a></li>
 									<?php endif ?>

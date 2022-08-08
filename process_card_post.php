@@ -5,7 +5,6 @@
     require('ImageResizeException.php');
     use \Gumlet\ImageResize;
 
-
     // file_upload_path() - Safely build a path String that uses slashes appropriate for our OS.
     // Default upload path is an 'uploads' sub-folder in the current folder.
     function file_upload_path($original_filename, $upload_subfolder_name = 'uploads') {
@@ -72,7 +71,6 @@
                     $statement->bindValue(':atk', $atk);
                     $statement->bindValue(':def', $def);
 
-
                     $image_upload_detected = isset($_FILES['icon_filepath']) && ($_FILES['icon_filepath']['error'] === 0);
                     $upload_error_detected = isset($_FILES['icon_filepath']) && ($_FILES['icon_filepath']['error'] > 0);
 
@@ -97,7 +95,6 @@
                         }else{
                             $upload_success = false;
                         }
-                        
                     }
 
                     $image_upload_detected = isset($_FILES['image_filepath']) && ($_FILES['image_filepath']['error'] === 0);
@@ -124,11 +121,7 @@
                         }else{
                             $upload_success = false;
                         }
-                        
                     }
-
-
-
                     $statement->bindValue(':icon_path', $icon_path);
                     $statement->bindValue(':image_path', $image_path);
                     break;
@@ -177,9 +170,7 @@
                             }else{
                                 $upload_success = false;
                             }
-                            
                         }
-
                     }
 
                     $statement->bindValue(':icon_path', $icon_path);
@@ -234,8 +225,6 @@
     }else{
         $errorMsg = "Name or Description cannot be blank.";
     }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -250,7 +239,7 @@
     <header>
         <div id="heading">
                 <div id="mainMenu">
-                    <h2>Dragon Ball Z Dokkan Battle - User Admin</h2>
+                    <h2>Dragon Ball Z Dokkan Battle - Card</h2>
                 </div>
             <div id="image">
                 <img class="headerImage" src="images/banner.jpg" alt="Dragon Ball Z Dokkan Battle">
@@ -262,11 +251,6 @@
         <div id="content">
             <H1><?= $errorMsg ?></H1>
         </div>
-<?php 
-    //print_r($_POST);
-    //echo $active;
-    //print_r($statement->errorInfo());
-?>
     </section>
 </body>
 </html>

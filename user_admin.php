@@ -6,12 +6,10 @@
 		header('Location: login.php');	
 	}
 
-	
-
 	// Connection to database
     require('connect.php');
 
-    // Retrieve all records from tweets table and order in descending order so the latest transaction will be listed on the top.
+    // Retrieve all records from user table and order by user id.
     $query = "SELECT user_id, name, type, modify_date, create_date, active FROM user ORDER BY user_id";
 
     // A PDO::Statement is prepared from the query.
@@ -24,7 +22,6 @@
 	$results_per_page = 5;
     $rowCount = $statement->rowCount();
     
-
     if ($rowCount > $results_per_page) {
     	$no_of_page = ceil($rowCount/$results_per_page);
     }else{
@@ -59,10 +56,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<?php 
-	//print_r($statement);
-  //print_r($_SESSION);
-?>
 	<header>
 		<div id="heading">
 				<div id="mainMenu">
@@ -70,7 +63,6 @@
 					<nav>
 						<ul> 
 							<li><a href="index.php">Home</a></li>
-							<li><a href="news.php">News</a></li>
 							<?php if(isset($_SESSION['valid']) && ($_SESSION['valid'] && $_SESSION['user_type'] === 'S')): ?>
 								<li><a href="user_admin.php">User Admin</a></li>
 							<?php endif ?>
@@ -106,7 +98,7 @@
 					</thead>
 					<?php while($row = $statement->fetch()): ?>
 						<tr>
-							<td><?= $row['user_id'] ?></td>
+							<td ><?= $row['user_id'] ?></td>
 							<td><?= $row['name'] ?></td>
 							<?php 
 								switch ($row['type']) {
@@ -121,15 +113,12 @@
 										break;
 								}
 							?>
-
 							<td><?= $type ?></td>
-							<td><?= $row['modify_date'] ?></td>
-							<td><?= $row['create_date'] ?></td>
-							<td><?= $row['active'] ?></td>
-							<td><a href="user_admin_edit.php?id=<?= $row['user_id']?>">Edit</a></td>
-							<!--<td><a href="user_admin_delete.php?id=<?= $row['user_id']?>">Del</a></td> -->
-							<td><a href="javascript:del_user('<?= $row['user_id']?>');">Del</a></td>
-							      
+							<td align="center"><?= $row['modify_date'] ?></td>
+							<td align="center"><?= $row['create_date'] ?></td>
+							<td align="center"><?= $row['active'] ?></td>
+							<td align="center"><a href="user_admin_edit.php?id=<?= $row['user_id']?>">Edit</a></td>
+							<td align="center"><a href="javascript:del_user('<?= $row['user_id']?>');">Del</a></td>
 						</tr>
 					<?php endwhile ?>
 					
@@ -155,20 +144,14 @@
 						</tr>
 					<?php endif ?>
 				</table>
-
 			<?php endif ?>
-			
-			
-		  	
 		</div>
-		
 		<footer>
 			<div id="footer">
             	<div id="footerMenu">
 	            	<nav>
 						<ul> 
 							<li><a href="index.php">Home</a></li>
-							<li><a href="news.php">News</a></li>
 							<?php if(isset($_SESSION['valid']) && ($_SESSION['valid'] && $_SESSION['user_type'] === 'S')): ?>
 								<li><a href="user_admin.php">User Admin</a></li>
 							<?php endif ?>

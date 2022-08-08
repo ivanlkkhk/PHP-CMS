@@ -18,19 +18,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<?php 
-	//print_r($statement);
-  //print_r($_SESSION);
-?>
 	<header>
 		<div id="heading">
 				<div id="mainMenu">
 					<h2>Dragon Ball Z Dokkan Battle - User Admin</h2>
 				</div>
-<!--			<div id="image">
-				<img class="headerImage" src="images/banner.jpg" alt="Dragon Ball Z Dokkan Battle">
-			</div>
-		-->
 		</div>	
 	</header>	
 	<section>

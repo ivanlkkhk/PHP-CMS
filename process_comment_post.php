@@ -1,8 +1,11 @@
 <?php
     // This page is using for process the comment update with the database.
     session_start();
+
+    // Include Captcha library.
     require 'CaptchasDotNet.php';
 
+    // Create catcha object.
     $captchas = new CaptchasDotNet ('demo', 'secret',
                                 '/CAPTCHA','3600',
                                 'abcdefghkmnopqrstuvwxyz','6',
@@ -11,6 +14,7 @@
     $password      = $_REQUEST['password'];
     $random_string = $_REQUEST['random'];
 
+    // Validate the Random String
     if (!$captchas->validate ($random_string)){
         echo 'The session key (random) does not exist, please go back and reload form.<br/>';
         echo 'In case you are the administrator of this page, ';
@@ -22,9 +26,10 @@
     }
     else
     {
+        // If pass the Captcha's password verification, then process for save the command.
         if ($_POST && !empty($_POST['comment'])) {
 
-
+        // Sanitize the data;
         $user_id = $_SESSION['user_id'];
         $card_id = filter_input(INPUT_POST, 'card_id', FILTER_SANITIZE_NUMBER_INT);
         $comment = filter_input(INPUT_POST, 'comment', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
@@ -64,11 +69,6 @@
         }
     }
 
-
-
-    
-
-
 ?>
 
 <!DOCTYPE html>
@@ -83,7 +83,7 @@
     <header>
         <div id="heading">
                 <div id="mainMenu">
-                    <h2>Dragon Ball Z Dokkan Battle - User Admin</h2>
+                    <h2>Dragon Ball Z Dokkan Battle - User Comment</h2>
                 </div>
             <div id="image">
                 <img class="headerImage" src="images/banner.jpg" alt="Dragon Ball Z Dokkan Battle">

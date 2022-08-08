@@ -24,7 +24,6 @@
         $host  = $_SERVER['HTTP_HOST'];
         $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
         $extra = 'index.php';
-        //header("Location: http://$host$uri/$extra");
         exit;
     }
 
@@ -40,7 +39,6 @@
         $host  = $_SERVER['HTTP_HOST'];
         $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
         $extra = 'index.php';
-        //header("Location: http://$host$uri/$extra");
         exit;
     }
 
@@ -48,15 +46,11 @@
     $levelQuery = "SELECT * FROM level WHERE active = 'Y' ORDER BY order_by";
     $levelStatement = $db->prepare($levelQuery);
     $levelStatement->execute();
-    //$levelsRow = $levelStatement->fetch();
 
     // Retrieve category master table.
     $catQuery = "SELECT * FROM category WHERE active = 'Y' ORDER BY code";
     $catStatement = $db->prepare($catQuery);
     $catStatement->execute();
-    //$catsRow = $catStatement->fetch();
-
-
 ?>
 
 
@@ -88,7 +82,6 @@
 					<nav>
 						<ul> 
 							<li><a href="index.php">Home</a></li>
-							<li><a href="news.php">News</a></li>
 							<?php if(isset($_SESSION['valid']) && ($_SESSION['valid'] && $_SESSION['user_type'] === 'S')): ?>
 								<li><a href="user_admin.php">User Admin</a></li>
 							<?php endif ?>
@@ -100,10 +93,6 @@
 						</ul>
 					</nav>
 				</div>
-<!--			<div id="image">
-				<img class="headerImage" src="images/banner.jpg" alt="Dragon Ball Z Dokkan Battle">
-			</div>
--->
 		</div>	
 	</header>	
 	<section>
@@ -162,7 +151,7 @@
 					<li>
 						<?php if(!empty($cardsRow['icon_path'])) : ?>
 								<!--<label for="del_icon"> Delete Icon: </label>-->
-								Delete Image
+								Delete Image:
 								<input id="del_icon" name="del_icon" type="checkbox" />
 								<br>
 								<img src="<?= $cardsRow['icon_path'] ?>" width="100" >
@@ -173,7 +162,6 @@
 					            <input type='file' name='icon_filepath' id='icon_filepath' ?>
 						<?php endif ?>
 						<input id="icon_path" name="icon_path" type="hidden" value="<?= $cardsRow['icon_path']?>" />
-						
 			        </li>
 			        <li>
 			            <?php if(!empty($cardsRow['image_path'])) : ?>
@@ -182,7 +170,7 @@
 								Delete Image:
 								<input id="del_image" name="del_image" type="checkbox" />
 								<br>
-								<img src="<?= $cardsRow['image_path'] ?>" width="100" >
+								<img src="<?= $cardsRow['image_path'] ?>" width="200" >
 						<?php else: ?>
 								<label for='image_path'>Image path:</label>
 								<div id='img_image'>
@@ -203,7 +191,6 @@
 	            	<nav>
 						<ul> 
 							<li><a href="index.php">Home</a></li>
-							<li><a href="news.php">News</a></li>
 							<?php if(isset($_SESSION['valid']) && ($_SESSION['valid'] && $_SESSION['user_type'] === 'S')): ?>
 								<li><a href="user_admin.php">User Admin</a></li>
 							<?php endif ?>
@@ -219,8 +206,6 @@
 			</div>
 		</footer>
 	</section>
-
 	<script src="cards_event.js"></script>
-
 </body>
 </html> 

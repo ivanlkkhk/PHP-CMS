@@ -46,6 +46,5 @@
     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
     $json = json_encode($result);
 
-    //echo $query;
     echo $json;
 ?>

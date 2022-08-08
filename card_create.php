@@ -7,7 +7,6 @@
 		header('Location: login.php');	
 	}
 
-
 	// Connection to database
     require('connect.php');
 
@@ -51,7 +50,6 @@
 					<nav>
 						<ul> 
 							<li><a href="index.php">Home</a></li>
-							<li><a href="news.php">News</a></li>
 							<?php if(isset($_SESSION['valid']) && ($_SESSION['valid'] && $_SESSION['user_type'] === 'S')): ?>
 								<li><a href="user_admin.php">User Admin</a></li>
 							<?php endif ?>
@@ -63,11 +61,6 @@
 						</ul>
 					</nav>
 				</div>
-<!--			<div id="image">
-				<img class="headerImage" src="images/banner.jpg" alt="Dragon Ball Z Dokkan Battle">
-			</div>
-		</div>	
--->
 	</header>	
 	<section>
 		<form id="cardForm"
@@ -137,7 +130,6 @@
 	            	<nav>
 						<ul> 
 							<li><a href="index.php">Home</a></li>
-							<li><a href="news.php">News</a></li>
 							<?php if(isset($_SESSION['valid']) && ($_SESSION['valid'] && $_SESSION['user_type'] === 'S')): ?>
 								<li><a href="user_admin.php">User Admin</a></li>
 							<?php endif ?>
