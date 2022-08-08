@@ -32,7 +32,7 @@
         //echo 'You have entered valid use name and password';
         header('Location: index.php');
     }else {
-        header('Location: login.php');
+        header('Location: login.php?errorMsg=Wrong user id or password.');
         echo 'Wrong user_id or password';
     }
   }
