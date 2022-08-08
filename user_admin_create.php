@@ -41,8 +41,8 @@
 						<input id="name" name="name" type="text"/>
 					</li>
 					<li>
-						<label for="type">Type</label>
-						<select name="type">
+						<label for="userType">Type</label>
+						<select id="userType" name="userType">
 							<option value="S">System Administrator</option>
 							<option value="C">Content Manager</option>
 							<option value="R" selected>Registered User</option>
@@ -58,7 +58,7 @@
 					</li>
 				</ul>
 				<div class="buttons">
-					<button type="submit" name="command" value="create_user">login</button>
+					<button type="submit" name="command" value="create_user">Save</button>
 				</div>
 			</fieldset>
 		</form>
