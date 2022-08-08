@@ -114,17 +114,17 @@
 								}
 							?>
 							<td><?= $type ?></td>
-							<td align="center"><?= $row['modify_date'] ?></td>
-							<td align="center"><?= $row['create_date'] ?></td>
-							<td align="center"><?= $row['active'] ?></td>
-							<td align="center"><a href="user_admin_edit.php?id=<?= $row['user_id']?>">Edit</a></td>
-							<td align="center"><a href="javascript:del_user('<?= $row['user_id']?>');">Del</a></td>
+							<td class='center'><?= $row['modify_date'] ?></td>
+							<td class="center"><?= $row['create_date'] ?></td>
+							<td class="center"><?= $row['active'] ?></td>
+							<td class="center"><a href="user_admin_edit.php?id=<?= $row['user_id']?>">Edit</a></td>
+							<td class="center"><a href="javascript:del_user('<?= $row['user_id']?>');">Del</a></td>
 						</tr>
 					<?php endwhile ?>
 					
 					<?php if($no_of_page > 1): ?>
 						<tr>
-							<td colspan="7">
+							<td colspan="8">
 								<div class="pagination">
 								<?php if($page>=2): ?>
 									<a href='user_admin.php?page=<?= $page-1 ?>'>  Prev </a>
