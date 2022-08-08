@@ -500,17 +500,21 @@ div#comment{
     margin: 0px;
 }
 
-h4#comment-id{
+.comment-id{
     display: inline-block;
     margin: 0px;
 }
 
-p#comment-small {
+.comment-small {
     display: flex;
     margin: 0px;
 }
 
-p#comment-post{
+.comment-content{
     margin: 0px;
     padding-left: 20px;
+}
+
+.center {
+    text-align:  center;
 }
