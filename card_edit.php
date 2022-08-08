@@ -154,7 +154,7 @@
 								Delete Image:
 								<input id="del_icon" name="del_icon" type="checkbox" />
 								<br>
-								<img src="<?= $cardsRow['icon_path'] ?>" width="100" >
+								<img src="<?= $cardsRow['icon_path'] ?>" width="100" alt="<?= $cardsRow['name']?>" >
 						<?php else: ?>
 								<label for='icon_path'>Icon path:</label>
 								<div id='img_icon'>
@@ -170,7 +170,7 @@
 								Delete Image:
 								<input id="del_image" name="del_image" type="checkbox" />
 								<br>
-								<img src="<?= $cardsRow['image_path'] ?>" width="200" >
+								<img src="<?= $cardsRow['image_path'] ?>" width="200"  alt="<?= $cardsRow['name']?>" >
 						<?php else: ?>
 								<label for='image_path'>Image path:</label>
 								<div id='img_image'>
