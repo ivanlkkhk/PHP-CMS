@@ -9,8 +9,14 @@
 	// Connection to database
     require('connect.php');
 
-    // Retrieve all records from user table and order by user id.
-    $query = "SELECT user_id, name, type, modify_date, create_date, active FROM user ORDER BY user_id";
+    if (isset($_GET['keyword']) && !empty($_GET['keyword'])) {
+        $keyword = filter_input(INPUT_GET, 'keyword', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $query = "SELECT user_id, name, type, modify_date, create_date, active FROM user WHERE name like '%" . $keyword . "%' ORDER BY user_id";
+    }else{
+	    // Retrieve all records from user table and order by user id.
+	    $keyword = '';
+	    $query = "SELECT user_id, name, type, modify_date, create_date, active FROM user ORDER BY user_id";
+	}
 
     // A PDO::Statement is prepared from the query.
     $statement = $db->prepare($query);
@@ -37,7 +43,14 @@
 	$page_first_result = ($page-1) * $results_per_page;  
 
     // Retrieve the records require for current page.
-    $query = "SELECT user_id, name, type, modify_date, create_date, active FROM user ORDER BY user_id LIMIT "  . $page_first_result . ',' . $results_per_page;  
+
+	if (isset($_GET['keyword']) && !empty($_GET['keyword'])) {
+        $keyword = filter_input(INPUT_GET, 'keyword', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $query = "SELECT user_id, name, type, modify_date, create_date, active FROM user WHERE name like '%" . $keyword . "%' ORDER BY user_id LIMIT "  . $page_first_result . ',' . $results_per_page;  
+    }else{
+	    // Retrieve all records from user table and order by user id.
+		$query = "SELECT user_id, name, type, modify_date, create_date, active FROM user ORDER BY user_id LIMIT "  . $page_first_result . ',' . $results_per_page;  
+	}
 
     // A PDO::Statement is prepared from the query.
     $statement = $db->prepare($query);
@@ -80,6 +93,12 @@
 		</div>	
 	</header>	
 	<section>
+		<div id="search">
+			<?php if(isset($_SESSION['valid']) && ($_SESSION['valid'])): ?>
+				<label for="keyword">Search Name</label>
+				<input id="keyword" name="keyword" type="text" value=<?= $keyword ?>>
+			<?php endif ?>
+		</div>
 		<div id="content">
 			<?php if($statement->rowCount()==0): ?>
 				<h2>No records<h2>
@@ -126,19 +145,35 @@
 						<tr>
 							<td colspan="8">
 								<div class="pagination">
-								<?php if($page>=2): ?>
-									<a href='user_admin.php?page=<?= $page-1 ?>'>  Prev </a>
-								<?php endif ?>
-								<?php for($pageIdx = 1; $pageIdx<= $no_of_page; $pageIdx++): ?>  
-									<?php if ($page == $pageIdx): ?>
-										<a href = "user_admin.php?page=<?= $pageIdx ?>" class="active"><?= $pageIdx ?></a>  
-									<?php else: ?>
-								    	<a href = "user_admin.php?page=<?= $pageIdx ?>"><?= $pageIdx ?></a>  
-								    <?php endif ?>
-								<?php endfor ?>
-								<?php if($page<$no_of_page): ?>
-	            					<a href='user_admin.php?page=<?= $page+1 ?>'>  Next </a>
-	            				<?php endif ?>
+								<?php if($keyword != ''): ?>
+									<?php if($page>=2): ?>
+											<a href='user_admin.php?page=<?= $page-1 ?>&keyword=<?= $keyword ?>'>  Prev </a>
+									<?php endif ?>
+									<?php for($pageIdx = 1; $pageIdx<= $no_of_page; $pageIdx++): ?>  
+										<?php if ($page == $pageIdx): ?>
+											<a href = "user_admin.php?page=<?= $pageIdx ?>&keyword=<?= $keyword ?>" class="active"><?= $pageIdx ?></a>  
+										<?php else: ?>
+									    	<a href = "user_admin.php?page=<?= $pageIdx ?>&keyword=<?= $keyword ?>"><?= $pageIdx ?></a>  
+									    <?php endif ?>
+									<?php endfor ?>
+									<?php if($page<$no_of_page): ?>
+		            					<a href='user_admin.php?page=<?= $page+1 ?>&keyword=<?= $keyword ?>'>  Next </a>
+		            				<?php endif ?>
+	            				<?php else: ?>
+									<?php if($page>=2): ?>
+											<a href='user_admin.php?page=<?= $page-1 ?>'>  Prev </a>
+										<?php endif ?>
+									<?php for($pageIdx = 1; $pageIdx<= $no_of_page; $pageIdx++): ?>  
+										<?php if ($page == $pageIdx): ?>
+											<a href = "user_admin.php?page=<?= $pageIdx ?>" class="active"><?= $pageIdx ?></a>  
+										<?php else: ?>
+									    	<a href = "user_admin.php?page=<?= $pageIdx ?>"><?= $pageIdx ?></a>  
+									    <?php endif ?>
+									<?php endfor ?>
+									<?php if($page<$no_of_page): ?>
+		            					<a href='user_admin.php?page=<?= $page+1 ?>'>  Next </a>
+		            				<?php endif ?>
+		            			<?php endif ?>
 	            				</div>
 							</td>
 						</tr>

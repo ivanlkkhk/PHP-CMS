@@ -9,3 +9,16 @@ function del_user(id) {
     }
 
 }
+
+
+function search(eventKey) {
+    if (eventKey === "Enter") {
+        var keyword = document.getElementById('keyword').value;
+        window.location.replace("user_admin.php?keyword=" + keyword);
+
+    }
+}
+
+document.getElementById("search").addEventListener("keyup", (event) => {
+  search(event.key);
+});
