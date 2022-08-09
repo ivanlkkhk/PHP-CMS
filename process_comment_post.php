@@ -7,12 +7,14 @@
 
     // Create catcha object.
     $captchas = new CaptchasDotNet ('demo', 'secret',
-                                '/CAPTCHA','3600',
+                                '/captcha','3600',
                                 'abcdefghkmnopqrstuvwxyz','6',
                                 '240','80','000088');
 
     $password      = $_REQUEST['password'];
     $random_string = $_REQUEST['random'];
+
+    //echo $random_string;
 
     // Validate the Random String
     if (!$captchas->validate ($random_string)){
@@ -26,6 +28,7 @@
     }
     else
     {
+
         // If pass the Captcha's password verification, then process for save the command.
         if ($_POST && !empty($_POST['comment'])) {
 
@@ -57,7 +60,7 @@
                 // Redirect to the index page.
                 $host  = $_SERVER['HTTP_HOST'];
                 $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-                $extra = 'index.php';
+                $extra = 'card_show.php?id=' . $card_id;
                 header("Location: http://$host$uri/$extra");
             }else{
                 $errorMsg = 'Not Success';

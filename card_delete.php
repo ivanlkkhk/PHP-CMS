@@ -11,8 +11,8 @@
         require('connect.php');
         
         // Prepare the SQL for update the record to database
-        
-        $query = "DELETE FROM user WHERE user_id = :id ";
+
+        $query = "DELETE FROM cards_comment WHERE card_id = :id ";
         $statement = $db->prepare($query);
         
         //  Bind values to the parameters
@@ -20,7 +20,7 @@
 
         if($statement->execute()){
             // Redirect to the index page.
-            header('Location: user_admin.php');
+            header('Location: index.php');
             /*
             $host  = $_SERVER['HTTP_HOST'];
             $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
@@ -33,7 +33,27 @@
             echo $errorMsg;
         }
 
+        $query = "DELETE FROM cards WHERE card_id = :id ";        
+
+        $statement = $db->prepare($query);
         
+        //  Bind values to the parameters
+        $statement->bindValue(':id', $_GET['id']);
+
+        if($statement->execute()){
+            // Redirect to the index page.
+            header('Location: index.php');
+            /*
+            $host  = $_SERVER['HTTP_HOST'];
+            $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+            $extra = 'user_admin.php';
+            header("Location: http://$host$uri/$extra");
+              */  
+        }else
+        {
+            $errorMsg = 'Not Success';
+            echo $errorMsg;
+        }
 
     }else{
         $errorMsg = "User ID not found.";
@@ -41,7 +61,7 @@
         echo $errorMsg;
         $host  = $_SERVER['HTTP_HOST'];
         $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-        $extra = 'user_admin.php';
+        $extra = 'index.php';
         header("Location: http://$host$uri/$extra");
 
     }

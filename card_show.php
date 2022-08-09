@@ -53,7 +53,7 @@
 	// Fetch the row selected by primary key id.
 	$commentRow = $cardsStatement->fetch();
 
-	$captchas = new CaptchasDotNet ('demo', 'secret', '/CAPTCHA','3600', 'abcdefghkmnopqrstuvwxyz','6', '240','80','000088');
+	$captchas = new CaptchasDotNet ('demo', 'secret', '/captcha','3600', 'abcdefghkmnopqrstuvwxyz','6', '240','80','000088');
 
 ?>
 

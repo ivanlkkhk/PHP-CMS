@@ -10,11 +10,14 @@
 //   Felix Holderied <felix@holderied.de>
 // This file is in the public domain.
 //
+// $random_repository = '/CAPTCHA',
+//echo 'A' . $_SERVER['DOCUMENT_ROOT'];
+//    echo 'B' . $this->__random_repository;
 
 class CaptchasDotNet
 {
   function __construct($client, $secret,
-                       $random_repository = '/CAPTCHA',
+                       $random_repository = '/captcha',
                        $cleanup_time      = 3600,
                        $alphabet          = 'abcdefghijklmnopqrstuvwxyz',
                        $letters           = 6,
@@ -24,9 +27,11 @@ class CaptchasDotNet
   {
     $this->__client = $client;
     $this->__secret = $secret;
-    $this->__random_repository = $random_repository;
+    //$this->__random_repository = $random_repository;
+    $this->__random_repository = $_SERVER['DOCUMENT_ROOT'] . '/project' . $random_repository;
     $this->__cleanup_time      = $cleanup_time;
-    $this->__time_stamp_file   = $random_repository . '/__time_stamp__';
+    //$this->__time_stamp_file   = $random_repository . '/__time_stamp__';
+    $this->__time_stamp_file   = $_SERVER['DOCUMENT_ROOT'] . '/project' . $random_repository . '/__time_stamp__';
     $this->__alphabet          = $alphabet;
     $this->__letters           = $letters;
     $this->__width             = $width;
@@ -58,9 +63,17 @@ class CaptchasDotNet
   function random ()
   {
     // If the repository directory is does not yet exist, create it.
+    /*
     if (!is_dir ($this->__random_repository))
     {
       mkdir ($this->__random_repository);
+    
+    }*/
+
+    if (!file_exists ($this->__random_repository))
+    {
+      mkdir ($this->__random_repository, 0755, true);
+    
     }
 
     // If the time stamp file does not yet exist, create it.
@@ -240,11 +253,13 @@ EOT;
     $file_name = $this->__random_repository . '/' . $random;
 
     // Find out, whether the file exists
-    $result = is_file ($file_name);
+    //$result = is_file ($file_name);
+    $result = file_exists ($file_name);
 
     // if the file exists, remember it.
     if ($result)
     {
+
       $this->__random_file = $file_name;
     }
 
