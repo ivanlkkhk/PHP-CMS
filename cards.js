@@ -1,14 +1,3 @@
-function searchForm(event) {
-  event.preventDefault();
-
-  const streeNameInput = document.querySelector('#streetName');
-  const streeNameValue = streeNameInput.value.trim();
-  if (streeNameValue !== '') {
-    //Maximum 100 results, modify the number to change the maximum records show on screen.
-    fetchData(streeNameValue, 100);
-  }
-}
-
 function fetchData(sorting, keyword) {
 
     var apiUrl = 'getCards.php?sorting=' + sorting;
@@ -73,15 +62,9 @@ function addCard(table, card) {
         icon.appendChild(icon_img);
     }else
     {
-        /*
-        icon_path.align = 'center';
-        const icon_path = document.createElement("td");
-        icon_path.innerHTML = '-';
-        icon.appendChild(icon_path);*/
         icon.align = 'center';
         icon.innerHTML = '-';
     }
-    
 
     row.appendChild(icon);
     row.appendChild(level);
@@ -237,7 +220,6 @@ function search(eventKey) {
     if (eventKey === "Enter") {
         var sorting = document.getElementById('sort').value;
         var keyword = document.getElementById('keyword').value;
-        console.log("2 " + keyword);
         fetchData(sorting, keyword);
 
     }
